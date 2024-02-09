@@ -1,0 +1,149 @@
+
+<div class="row">
+    <div class="col-8">
+
+        <div class="card">
+            <div class="card-header bg-primary">
+                <div class="row">
+
+                    <div class="col-6 text-white">
+                        Employee portal
+                    </div>
+
+                    <div class="col-6 text-white">
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">City</th>
+                        <th scope="col">State</th>
+                        <th scope="col">Bank</th>
+                        <th scope="col">IFSC</th>
+
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let student of employee">
+                        <td>{{student.id}}</td>
+                        <td>{{student.name}}</td>
+                        <td>{{student.email}}</td>
+                        <td>{{student.mobile}}</td>
+                        <td>{{student.address}}</td>
+                        <td>{{student.city}}</td>
+                        <td>{{student.state}}</td>
+                        <td>{{student.bankName}}</td>
+                        <td>{{student.ifsc}}</td>
+
+
+
+                        <td>
+                            <div class="row">
+                                <div class="col-6">
+                                    <button class="btn btn-success mx-1" (click)="updateEmp(student.id)">Update</button>
+                                </div>
+                                <div class="col-6">
+                                    <button class="btn btn-danger" (click)="deleteEmp(student.id)">Delete</button>
+                                </div>
+                            </div>
+                            
+                           
+                        </td>
+                       
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+
+    <div class="col-4">
+
+        <div class="card">
+            <div class="card-header bg-primary">
+                <div class="row">
+
+                    <div class="col-6 text-white">
+                        Employee portal
+                    </div>
+
+                    <div class="col-6 text-white">
+
+
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        
+
+        <div class="card-body">
+            <form (ngSubmit)="createEmployee()">
+
+                <div class="row">
+                    <div class="col-6">
+                        <label for="">Name</label>
+                        <input type="text" class="form-control"  [(ngModel)]="emp.name" name="name" placeholder="name" required="name">
+                    </div>
+                    <div class="col-6">
+                        <label for="">Email</label>
+                        <input type="text" class="form-control"  required="email"   [(ngModel)]="emp.email"  name="email" placeholder="Email">
+                    </div>
+                    <div class="col-6">
+                        <label for="">City</label>
+                        <input type="text" class="form-control" [(ngModel)]="emp.city" name="city" placeholder="city">
+                    </div>
+                    <div class="col-6">
+                        <label for="">Phone</label>
+                        <input type="text" class="form-control" [(ngModel)]="emp.mobile" name="phone" placeholder="phone">
+                    </div>
+                    <div class="col-6">
+                        <label for="">State</label>
+                        <input type="text" class="form-control" [(ngModel)]="emp.state" name="state" placeholder="state">
+                    </div>
+                    <div class="col-6">
+                        <label for="">Bank Name</label>
+                        <input type="text" class="form-control" [(ngModel)]="emp.bankName" name="bank" placeholder="Bank Name">
+                    </div>
+                    <div class="col-6">
+                        <label for="">Address</label>
+                        <input type="text" class="form-control" [(ngModel)]="emp.address" name="address" placeholder="Address">
+                    </div>
+
+                    <div class="col-6">
+                        <label for="">ISFC Code</label>
+                        <input type="text" class="form-control" [(ngModel)]="emp.ifsc" name="bank" placeholder="IFSC">
+                    </div>
+                    
+                    <div class="col-6">
+                        
+                        <button type="reset" class="btn btn-danger mt-1">Clear</button>
+                    </div>
+                    <div class="col-6">
+                       
+                        <button type="submit" *ngIf="emp.id!=0" class="btn btn-success mt-1 lg"  >update</button>
+                        <button type="submit" *ngIf="emp.id==0" class="btn btn-success mt-1 lg">submit</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
